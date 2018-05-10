@@ -1,0 +1,47 @@
+.body{
+	background-image: url("../img/rusia2018.jpeg");
+	color: white;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
+.body2{
+	
+	text-align: center;
+}
+
+.backgroundDiv
+{
+	background-color: #077fef;
+}
+
+.div-principal
+{
+	border: 1px solid black;
+	margin-left: 20%;
+	margin-right: 20%;
+}
+
+.div-team1
+{
+	
+	border: 1px solid black;
+	width: 50px;
+	margin-left: 15%;
+	text-align: left;
+}
+
+.img-flagt1{
+	width: 50px;
+	height: 30px;
+}
+
+.divname-team1{
+	
+}
+
+.name-team1{
+	font-size: 20px;
+}
+
