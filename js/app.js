@@ -65,14 +65,6 @@ $(document).ready(function(){
 	var divnameTeam1 = $("<div></div>").addClass("divname-team2");
 	var spannameTeam1 = $("<span></span>").addClass("name-team2").html("Arabia Saudita");
 
-<<<<<<< HEAD
-=======
-				
->>>>>>> 346bafeca84a3a976d5e5268d4dbd8d770653f4c
-
-		
-
-<<<<<<< HEAD
 
 	acordeon.append(card).append();*/
 })
@@ -80,11 +72,3 @@ $(document).ready(function(){
 var url = "http://localhost:8000/";
 
 var urlActual = window.location;
-=======
-			acordeon.append(card).append();
-		}
-	})
-})
-
-var url = "http://localhost:8000/"
->>>>>>> 346bafeca84a3a976d5e5268d4dbd8d770653f4c
