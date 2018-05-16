@@ -4,6 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<link rel="stylesheet" type="text/css" href="css/libs/css/bootstrap.min.css">
+		<link href="css/libs/fonts/open-iconic-master/font/css/open-iconic-bootstrap.css" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="css/main.css">
 
 		<script src="js/libs/jquery-3.3.1.min.js"></script>
@@ -11,40 +12,57 @@
 		<script src="js/app.js"></script>
 		<title>POLLA MUNDIALISTA</title> 
 	</head>
-	<body>
-		<div class="container">
-			<div class="container1">
-				<table class="table">
-		  			<thead class="thead-dark">
-					    <tr>
-					      <th scope="col">POSICION</th>
-					      <th scope="col">NOMBRE</th>
-					      <th scope="col">PUNTUACION</th>
-					      <th scope="col">N° ACIERTOS</th>
-					    </tr>
-				  	</thead>
-				  	<tbody>
-					    <tr>
-					      <th scope="row">1</th>
-					      <td>Mark</td>
-					      <td>Otto</td>
-					      <td>@mdo</td>
-					    </tr>
-					    <tr>
-					      <th scope="row">2</th>
-					      <td>Jacob</td>
-					      <td>Thornton</td>
-					      <td>@fat</td>
-					    </tr>
-					    <tr>
-					      <th scope="row">3</th>
-					      <td>Larry</td>
-					      <td>the Bird</td>
-					      <td>@twitter</td>
-					    </tr>
-				  	</tbody>
-				 </table>
-			</div>
-	    </div>
+	<body class="body3">
+		<div class="div-body3">
+			<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+				<div class="dropdown">
+				  <button class="btn btn-default" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				    <span class="oi oi-menu" title="menu" aria-hidden="true"></span>
+				  </button>
+				  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+				    <a class="dropdown-item" href="#">Encuentros</a>
+				    <a class="dropdown-item" href="#">Tabla de Posiciones</a>
+				    <a class="dropdown-item" href="#">Salir</a>
+				  </div>
+				</div>
+				<div style="text-align: right; width: 100%">
+				  	<a class="navbar-brand" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">RUSIA 2018</font></font></a>
+				</div>
+			</nav>
+			<div class="container">
+				<div class="container1">
+					<table class="table table-transparent">
+						  <thead class="thead-dark">
+						    <tr>
+						      <th scope="col">N°</th>
+						      <th scope="col">NOMBRE</th>
+						      <th scope="col">POSICION</th>
+						      <th scope="col">ACIERTOS</th>
+						    </tr>
+						  </thead>
+						  <tbody class="tbody-color">
+						    <tr>
+						      <th scope="row">1</th>
+						      <td></td>
+						      <td></td>
+						      <td></td>
+						    </tr>
+						    <tr>
+						      <th scope="row">2</th>
+						      <td></td>
+						      <td></td>
+						      <td></td>
+						    </tr>
+						    <tr>
+						      <th scope="row">3</th>
+						      <td></td>
+						      <td></td>
+						      <td></td>
+						    </tr>
+						  </tbody>
+						</table>
+				</div>
+		    </div>
+		</div>
 	</body>
 </html>
