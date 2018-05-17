@@ -1,5 +1,9 @@
 $(document).ready(function(){
-	alert(urlActual);
+	var user = localStorage.getItem("user");
+	if(user)
+	{
+		window.location.href = "index2.html";
+	}
 	$("#btnLogin").click(function(){
 		var data = {
 			"user": $("#inputEmail").val(),
@@ -12,11 +16,13 @@ $(document).ready(function(){
 			data: JSON.stringify(data),
 			success: function(respuesta){
 				if(respuesta.success){
+					console.log(respuesta.data);
+					localStorage.setItem("user", JSON.stringify(respuesta.data));
 					window.location.href = "index2.html";
 				}
 				else
 				{
-					alert("El usuario no existe")
+					alertify.error("Usuario o contraseña incorrectas");
 				}
 			},
 			error: function(xhr){
@@ -68,7 +74,3 @@ $(document).ready(function(){
 
 	acordeon.append(card).append();*/
 })
-
-var url = "http://localhost:8000/";
-
-var urlActual = window.location;
