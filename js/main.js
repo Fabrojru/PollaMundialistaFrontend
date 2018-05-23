@@ -63,7 +63,7 @@ $(document).ready(function(){
 						inputcolsm4.val(value.forecast.score2);
 					}
 					var spanColSm4 = $("<span></span>").html(value.score2);
-					divcolsm4.append(inputcolsm4).append(spanColSm4);
+					divcolSm4.append(inputcolsm4).append(spanColSm4);
 
 					var divcolSm5 = $("<div></div>").addClass("col-sm");
 					var divImgSm5 = $("<div></div>");
@@ -86,9 +86,9 @@ $(document).ready(function(){
 					})
 					divColSm6.append(buttonSm6.append(spanSm6));
 
-					row.append(divcolSm1).append(divcolSm2).append(divcolSm3).append(divcolsm4).append(divcolSm5).append(divColSm6);
+					divrow.append(divcolSm1).append(divcolSm2).append(divcolSm3).append(divcolSm4).append(divcolSm5).append(divColSm6);
 
-					divcardBody.append(row);
+					divcardBody.append(divrow);
 					divMain.append(divcardBody);
 					card.append(divMain);
 					acordeon.append(card);
