@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	var user = localStorage.getItem("user");
+	var user = getUser();
 	if(user)
 	{
 		window.location.href = "index2.html";

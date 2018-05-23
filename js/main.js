@@ -1,10 +1,9 @@
 $(document).ready(function(){
-	var user = localStorage.getItem("user");
+	var user = getUser();
 	if(!user)
 	{
 		window.location.href = "index.html";
 	}
-	user = JSON.parse(user);
 	$.ajax({
 		method: "POST",
 		url: url+"allmatch",
@@ -28,7 +27,7 @@ $(document).ready(function(){
 					cardHeader.append(h5.append(button));
 					
 					//bloque div colapse
-					var divMain = $("<div></div>").addClass("collapse show").attr({
+					var divMain = $("<div></div>").addClass("collapse").attr({
 						"id": "collapse"+value.id,
 						"aria-labelledby": "heading"+value.id,
 						"data-parent": "#accordion",
@@ -44,7 +43,10 @@ $(document).ready(function(){
 					divcolSm1.append(divImgSm1.append(imgSm1)).append(divnameTeam1.append(spannameTeam1));
 					
 					var divcolSm2 = $("<div></div>").addClass("col-sm");
-					var inputcolsm2 = $("<input>").addClass("form-control").attr("type", "text");
+					var inputcolsm2 = $("<input>").addClass("form-control").attr({
+						"type": "text",
+						"id": "inputSquad1"+value.id
+					});
 					if(value.forecast.score1)
 					{
 						inputcolsm2.val(value.forecast.score1);
@@ -57,7 +59,10 @@ $(document).ready(function(){
 					divcolSm3.append(labelVs);
 
 					var divcolSm4 = $("<div></div>").addClass("col-sm");
-					var inputcolsm4 = $("<input>").addClass("form-control").attr("type", "text");
+					var inputcolsm4 = $("<input>").addClass("form-control").attr({
+						"type": "text",
+						"id": "inputSquad2"+value.id
+					});
 					if(value.forecast.score2)
 					{
 						inputcolsm4.val(value.forecast.score2);
@@ -76,9 +81,7 @@ $(document).ready(function(){
 					var buttonSm6 = $("<button></button>").addClass("btn btn-default").attr({
 						"type": "button",
 						"id": "btnSave"+ value.id,
-						"data-toggle": "dropdown",
-						"aria-haspopup": "true",
-						"aria-expanded": "false",
+						"onclick": "guardarPronostico("+value.id+", '"+value.squad1.name+"', '"+value.squad2.name+"')"
 					});
 					var spanSm6 = $("<span></span>").addClass("oi oi-check").attr({
 						"title": "check",
@@ -90,7 +93,7 @@ $(document).ready(function(){
 
 					divcardBody.append(divrow);
 					divMain.append(divcardBody);
-					card.append(divMain);
+					card.append(cardHeader).append(divMain);
 					acordeon.append(card);
 				})
 			}
@@ -103,3 +106,40 @@ $(document).ready(function(){
 		}
 	})
 })
+
+function guardarPronostico(idMatch, squad1Name, squad2Name){
+	var user = getUser();
+	alertify.confirm('Guardar Pronostico', 
+		'¿Esta seguro desea guardar el pronostico del partido '+ squad1Name + ' vs '+ squad2Name,
+		function(){ 
+			var data = {
+				"idUser": user.id,
+				"idMatch": idMatch,
+				"score1": $("#inputSquad1"+idMatch).val(),
+				"score2": $("#inputSquad2"+idMatch).val()
+			}
+			console.log(data);
+			$.ajax({
+				method: "POST",
+				url: url+"insert/forecast",
+				header: {"Authorization": true},
+				data: JSON.stringify(data),
+				success: function(respuesta){
+					if(respuesta.success == true)
+					{
+						alertify.success("Pronostico guardado con exito");
+					}
+					else
+					{
+						alertify.error("El partido ya comenzo no se puede actualizar");
+					}
+				},
+				error: function(xhr){
+
+				}
+			})
+		}, 
+		function(){ 
+		}
+	);
+}
