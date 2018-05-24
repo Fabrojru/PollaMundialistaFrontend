@@ -23,7 +23,7 @@ $(document).ready(function(){
 					//bloque card header
 					var cardHeader = $("<div></div>").addClass("card-header").attr("id", "heading"+value.id);
 					var h5 = $("<h5></h5>").addClass("mb-0");
-					var button = $("<button></button>").addClass("btn btn-link").attr({
+					var button = $("<button></button>").addClass("btn btn-primary").attr({
 						"data-toggle": "collapse",
 						"data-target": "#collapse"+value.id,
 						"aria-expanded": "true",

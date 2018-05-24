@@ -23,7 +23,7 @@ $(document).ready(function(){
 					//bloque card header
 					var cardHeader = $("<div></div>").addClass("card-header").attr("id", "heading"+value.id);
 					var h5 = $("<h5></h5>").addClass("mb-0");
-					var button = $("<button></button>").addClass("btn btn-link").attr({
+					var button = $("<button></button>").addClass("btn btn-success").attr({
 						"data-toggle": "collapse",
 						"data-target": "#collapse"+value.id,
 						"aria-expanded": "true",
@@ -121,15 +121,13 @@ function guardarResultado(idMatch, squad1Name, squad2Name){
 		'¿Esta seguro desea guardar el Resultado del partido '+ squad1Name + ' vs '+ squad2Name,
 		function(){ 
 			var data = {
-				"idUser": user.id,
-				"idMatch": idMatch,
 				"score1": $("#inputSquad1"+idMatch).val(),
 				"score2": $("#inputSquad2"+idMatch).val()
 			}
 			console.log(data);
 			$.ajax({
 				method: "POST",
-				url: url+"insert/forecast",
+				url: url+"save/finalmatch/"+idMatch,
 				header: {"Authorization": true},
 				data: JSON.stringify(data),
 				success: function(respuesta){
@@ -139,7 +137,7 @@ function guardarResultado(idMatch, squad1Name, squad2Name){
 					}
 					else
 					{
-						alertify.error("El partido ya comenzo no se puede actualizar");
+						alertify.error("Ocurrio un error en el servidor");
 					}
 				},
 				error: function(xhr){
