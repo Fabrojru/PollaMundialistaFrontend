@@ -52,12 +52,12 @@ $(document).ready(function(){
 						"type": "text",
 						"id": "inputSquad1"+value.id
 					});
-					if(value.forecast.score1)
+					if(value.score1)
 					{
-						inputcolsm2.val(value.forecast.score1);
+						inputcolsm2.val(value.score1);
 					}
 					var spanColSm2 = $("<span></span>").html(value.score1);
-					divcolSm2.append(inputcolsm2).append(spanColSm2);
+					divcolSm2.append(inputcolsm2);
 
 					var divcolSm3 = $("<div></div>").addClass("col-sm");
 					var labelVs = $("<label></label>").html("vs");
@@ -68,12 +68,12 @@ $(document).ready(function(){
 						"type": "text",
 						"id": "inputSquad2"+value.id
 					});
-					if(value.forecast.score2)
+					if(value.score2)
 					{
-						inputcolsm4.val(value.forecast.score2);
+						inputcolsm4.val(value.score2);
 					}
 					var spanColSm4 = $("<span></span>").html(value.score2);
-					divcolSm4.append(inputcolsm4).append(spanColSm4);
+					divcolSm4.append(inputcolsm4);
 
 					var divcolSm5 = $("<div></div>").addClass("col-sm");
 					var divImgSm5 = $("<div></div>");
@@ -86,22 +86,16 @@ $(document).ready(function(){
 					var buttonSm6 = $("<button></button>").addClass("btn btn-default").attr({
 						"type": "button",
 						"id": "btnSave"+ value.id,
-						"onclick": "guardarPronostico("+value.id+", '"+value.squad1.name+"', '"+value.squad2.name+"')"
+						"onclick": "guardarResultado("+value.id+", '"+value.squad1.name+"', '"+value.squad2.name+"')"
 					});
 					var spanSm6 = $("<span></span>").addClass("oi oi-check").attr({
 						"title": "check",
 						"aria-hidden": "true"
 
 					})
-					if(fechaSistema >= fechaPartido)
-					{
-						inputcolsm2.attr("disabled", "disabled");
-						inputcolsm4.attr("disabled", "disabled");
-					}
-					else{
-						divColSm6.append(buttonSm6.append(spanSm6));
 
-					}
+
+					divColSm6.append(buttonSm6.append(spanSm6));
 
 					divrow.append(divcolSm1).append(divcolSm2).append(divcolSm3).append(divcolSm4).append(divcolSm5).append(divColSm6);
 
@@ -121,10 +115,10 @@ $(document).ready(function(){
 	})
 })
 
-function guardarPronostico(idMatch, squad1Name, squad2Name){
+function guardarResultado(idMatch, squad1Name, squad2Name){
 	var user = getUser();
-	alertify.confirm('Guardar Pronostico', 
-		'¿Esta seguro desea guardar el pronostico del partido '+ squad1Name + ' vs '+ squad2Name,
+	alertify.confirm('Guardar Resultado', 
+		'¿Esta seguro desea guardar el Resultado del partido '+ squad1Name + ' vs '+ squad2Name,
 		function(){ 
 			var data = {
 				"idUser": user.id,
@@ -141,7 +135,7 @@ function guardarPronostico(idMatch, squad1Name, squad2Name){
 				success: function(respuesta){
 					if(respuesta.success == true)
 					{
-						alertify.success("Pronostico guardado con exito");
+						alertify.success("Resultado guardado con exito");
 					}
 					else
 					{

@@ -28,6 +28,14 @@
 	width: 100%;
 	
 }
+.body4{
+	background-image: url("../img/encuentros.jgp");
+	color: white;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
 
 .backgroundDiv
 {
