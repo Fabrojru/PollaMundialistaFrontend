@@ -13,11 +13,8 @@ $(document).ready(function(){
 			if(respuesta.success){
 				var acordeon = $("#acordeon");
 				var fechaSistema = new Date();
-				console.log(fechaSistema);
 				$.each(respuesta.data, function(key,value){
 					var fechaPartido = new Date(value.date);
-					console.log(fechaPartido);
-					console.log(value.squad1.name);
 					var card = $("<div></div>").addClass("card");
 					
 					//bloque card header
@@ -52,8 +49,9 @@ $(document).ready(function(){
 						"type": "text",
 						"id": "inputSquad1"+value.id
 					});
-					if(value.forecast.score1)
+					if(value.forecast.score1 != null)
 					{
+						
 						inputcolsm2.val(value.forecast.score1);
 					}
 					var spanColSm2 = $("<span></span>").html(value.score1);

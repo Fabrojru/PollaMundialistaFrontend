@@ -4,7 +4,7 @@ $(document).ready(function(){
 		window.location.href="index.html";
 	})
 })
-var url = "http://localhost:8000/";
+var url = "http://192.168.1.187:8000/";
 alertify.set('notifier','position', 'top-center');
 
 function getUser()
